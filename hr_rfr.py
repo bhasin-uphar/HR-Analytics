@@ -46,9 +46,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_
 clf2 = xgb.XGBRegressor(objective ='reg:linear', colsample_bytree = 0.3, learning_rate = 0.7,
                 max_depth = 8, alpha = 20, n_estimators = 10, verbose=False)
 
-clf1 = RandomForestRegressor(n_estimators=50, criterion='mse', max_depth=None, min_samples_split=2, min_samples_leaf=2,
+clf1 = RandomForestRegressor(n_estimators=50, criterion='mse', max_depth=None, min_samples_split=2, min_samples_leaf=3,
                              min_weight_fraction_leaf=0.0, max_features='auto', max_leaf_nodes=None, min_impurity_decrease=0.0,
-                             min_impurity_split=None, bootstrap=False, oob_score=False, n_jobs=-1, random_state=None, verbose=15, warm_start=True)
+                             min_impurity_split=None, bootstrap=False, oob_score=False, n_jobs=5, random_state=None, verbose=10, warm_start=False)
 
 clf3 = RandomForestClassifier(n_estimators=100, criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=2,
                               min_weight_fraction_leaf=0.0, max_features='auto', max_leaf_nodes=None, min_impurity_decrease=0.0,
@@ -89,4 +89,4 @@ excel.to_csv("Hr(clean)1.csv", index=False)
 
 print(np.count_nonzero(preds == 1))
 
-## My Rank		1074		Score	0.4520795660
+## My Rank		951		Score	0.4697110904
